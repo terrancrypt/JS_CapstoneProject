@@ -1,29 +1,35 @@
-export let renderProducts = (Arr) => {
+export function renderProduct(productList) {
   let contentHTML = "";
-  Arr.forEach((item) => {
-    let contentDiv = `
-    <div class="col-3">
-                <div class="layout__items">
-                    <div class="layout__img">
-                        <img
-                            src="${item.img}">
-                    </div>
-                    <div class="layout__text">
-                        <p class="item__type">${item.type}</p>
-                        <p class="item__name">${item.name}</p>
-                        <p class="item__price">${item.price}</p>
-                        <p class="item__desc">${item.desc}</p>
-                        <div class="layout__hidden">
-                            <p class="item__screen">${item.screen}</p>
-                            <p class="item__backCamera">${item.backCamera}</p>
-                            <p class="item__frontCamera">${item.frontCamera}</p>
-                            <button class="btn btn-success">ADD TO CART</button>
-                        </div>
-                    </div>
+  productList.forEach((item) => {
+    let content = `
+        <div class="col-3">
+        <div class= "product-box">
+                <img src="${item.img}" />
+                <span class="product-type">${item.type}</span>
+                <h2 class="product-title">${item.name}</h2>
+                <span class="product-price">$${item.price}</span>
+                <button id="addCart">
+                    <i class="fa fa-shopping-bag"></i>
+                </button>
                 </div>
             </div>
-    `;
-    contentHTML += contentDiv;
+        `;
+    contentHTML += content;
   });
-  document.getElementById('productList').innerHTML = contentHTML;
+  document.querySelector(".shop-content").innerHTML = contentHTML;
+}
+
+export function addToCart(productList) {
+  let cartItem = {
+    product: "",
+    quantity: "1",
+  };
+  let btns = document.querySelectorAll("#addCart");
+  console.log(btns);
+  btns.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        cartItem.product = productList[index];
+        console.log(cartItem);
+    });
+  });
 };
