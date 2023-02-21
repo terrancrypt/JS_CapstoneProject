@@ -13,12 +13,10 @@ export let cartElement = [];
 export let DSSP = "DSSP";
 // Lấy dữ liệu từ Local Storage
 export var cartElementJson = localStorage.getItem(DSSP);
-if (DSSP != null){
+if (cartElementJson != null) {
   cartElement = JSON.parse(cartElementJson);
-  renderCart(cartElement);
+  renderCart();
 }
-
-
 
 // OPEN & CLOSE CART
 const cartIcon = document.querySelector("#cart-icon");
@@ -71,7 +69,6 @@ axios({
 
     // Thêm sản phẩm vào biến cart
     addToCart(productList);
-
   })
   .catch((err) => {
     console.log(err);
