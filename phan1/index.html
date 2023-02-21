@@ -49,11 +49,11 @@
                 <!-- TOTAL -->
                 <div class="total">
                     <div class="total-title">Total</div>
-                    <div class="total-price">$10</div>
+                    <div class="total-price">$0</div>
                 </div>
 
                 <!-- BUY BUTTON -->
-                <button type="button" class="btn btn-buy">
+                <button type="button" class="btn btn-buy" onclick="checkOut()">
                     BUY NOW
                 </button>
 
@@ -66,6 +66,16 @@
     <!-- SHOP SECTION -->
     <section class="shop container pt-5">
         <h2 class="section-title">Shop Products</h2>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            </div>
+            <select onchange="chonHang()" class="custom-select" id="inputGroupSelect01">
+              <option selected>Chọn hãng</option>
+              <option value="1">Samsung</option>
+              <option value="2">Iphone</option>
+            </select>
+          </div>
         <div class="shop-content row">
         </div>
         </div>

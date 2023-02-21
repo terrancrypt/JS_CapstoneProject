@@ -4,7 +4,7 @@ import { addToCart, renderProduct, renderCart } from "./controller.js";
 const BASE_URL = "https://63e61ead7eef5b22337f3e1f.mockapi.io";
 
 // Tạo mảng productList
-let productList = [];
+export let productList = [];
 
 // Tạo mảng cart
 export let cartElement = [];
@@ -13,11 +13,10 @@ export let cartElement = [];
 export let DSSP = "DSSP";
 // Lấy dữ liệu từ Local Storage
 export var cartElementJson = localStorage.getItem(DSSP);
-if (DSSP != null){
+if (cartElementJson != null) {
   cartElement = JSON.parse(cartElementJson);
-  renderCart(cartElement);
+  renderCart();
 }
-
 
 // OPEN & CLOSE CART
 const cartIcon = document.querySelector("#cart-icon");
