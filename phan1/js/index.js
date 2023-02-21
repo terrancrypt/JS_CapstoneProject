@@ -1,8 +1,24 @@
-import { taoDoiTuongCartItem } from "./cart.js";
-import { addToCart, renderProduct } from "./controller.js";
+import { addToCart, renderProduct, renderCart } from "./controller.js";
 
 // BASE URL API lấy từ MockAPI
 const BASE_URL = "https://63e61ead7eef5b22337f3e1f.mockapi.io";
+
+// Tạo mảng productList
+let productList = [];
+
+// Tạo mảng cart
+export let cartElement = [];
+
+// Biến lưu lữu Local Storage
+export let DSSP = "DSSP";
+// Lấy dữ liệu từ Local Storage
+export var cartElementJson = localStorage.getItem(DSSP);
+if (DSSP != null){
+  cartElement = JSON.parse(cartElementJson);
+  renderCart(cartElement);
+}
+
+
 
 // OPEN & CLOSE CART
 const cartIcon = document.querySelector("#cart-icon");
@@ -42,11 +58,6 @@ class Products {
   }
 }
 
-// Tạo mảng productList
-let productList = [];
-// Tạo mảng cart
-let cartElement = [];
-
 // Hiển thị danh sách sản phẩm cho khách hàng
 axios({
   url: `${BASE_URL}/Phones`,
@@ -55,13 +66,12 @@ axios({
   .then((res) => {
     productList = res.data;
 
-    console.log(productList);
-
     // In sản phẩm ra giao diện
     renderProduct(productList);
 
     // Thêm sản phẩm vào biến cart
     addToCart(productList);
+
   })
   .catch((err) => {
     console.log(err);

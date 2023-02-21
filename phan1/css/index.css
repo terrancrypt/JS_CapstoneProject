@@ -58,7 +58,7 @@ header {
 .cart.active {
     right: 0;
     transition: .5s;
-
+    z-index: 100;
 }
 
 .cart-title {
@@ -98,11 +98,14 @@ header {
 }
 
 .cart-quantity{
-    border: 1px solid black;
-    outline-color: red;
     width: 2.4rem;
     text-align: center;
     font-size: 1rem;
+    padding: 0 10px;
+}
+
+.quantity-up, .quantity-down{
+    cursor: pointer;
 }
 
 .cart-remove{
