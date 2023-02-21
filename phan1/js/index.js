@@ -19,7 +19,6 @@ if (DSSP != null){
 }
 
 
-
 // OPEN & CLOSE CART
 const cartIcon = document.querySelector("#cart-icon");
 const cart = document.querySelector(".cart");
@@ -71,7 +70,6 @@ axios({
 
     // Thêm sản phẩm vào biến cart
     addToCart(productList);
-
   })
   .catch((err) => {
     console.log(err);

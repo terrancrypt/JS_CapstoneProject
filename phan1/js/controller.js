@@ -52,7 +52,7 @@ export function addToCart(productList) {
       downCartItem(cartElement);
 
       // Lưu cartElement vào LocalStorage
-      var cartElementJson = JSON.stringify(cartElement);
+      let cartElementJson = JSON.stringify(cartElement);
       localStorage.setItem(DSSP, cartElementJson);
     });
   });
