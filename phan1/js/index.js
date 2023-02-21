@@ -73,16 +73,3 @@ axios({
   .catch((err) => {
     console.log(err);
   });
-
-export const fetchProductByID = async (id) => {
-  try {
-    const data = axios({
-      url: `${BASE_URL}/Phones/${id}`,
-      method: "get",
-    });
-    return data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
